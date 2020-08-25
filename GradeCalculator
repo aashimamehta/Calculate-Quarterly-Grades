@@ -1,0 +1,91 @@
+import math
+import time
+
+#this function should return a list of all subjects entered by the user
+def classes():
+  subs = [] 
+  #listarray to hold all the subjects
+  subjects = input("Enter the subject > ")
+  more = input("Do you want to add any other subject to the list? (yes/no) >")
+  subs.append(subjects)
+  #add the subjects to the list
+  if more.lower() !="yes" and more.lower() !="no":
+    print()
+    print("Invalid entry. Please type either yes or no.")
+    print()
+    more = input("Do you want to add any other subject to the list? (yes/no) >")
+    #while loop to keep adding more subjects
+  while more.lower() != "no" and more.lower() == "yes":
+    subjects = input("Enter the subject >")
+    subs.append(subjects)
+    more = input("Do you want to add any other subject to the list? (yes/no) >")
+  return subs
+
+#this fucntion should return all the scores out of 100 entered by the user
+def final_scores(nums):
+  points = []
+  for elements in nums:
+    print("Enter the scores for", elements, "out of 100>", end="")
+    score = int(input())
+    points.append(score)
+    if score > 100:
+      print()
+      print("Invalid entry. Please enter scores in the range of 0-100")
+      print()
+      print("Enter the scores for", elements, "out of 100>", end="")
+      score = int(input())
+  points.append(score)
+  return points
+
+#this fucntion should return the total percentage of all scores entered by the user for all subjects
+def cal_percent(percentage):
+  per = sum(percentage) / len(percentage)
+  return per
+
+#this function should return a letter grade as calculated by the above two fucntions
+def letter_grade(grade):
+ letter = str
+ if grade >= 90:
+  letter = "A"
+ elif grade >= 80:
+  letter = "B"
+ elif grade >= 70:
+  letter = "C"
+ elif grade >= 60:
+  letter = "D"
+ elif grade < 60:
+  letter = "F"
+ return letter
+
+
+###main####
+print("                         QUATERLY REPORT ")
+time.sleep(.5)
+print()
+print("You will be prompt to enter the subjects that you want on your quarterly report. Later you can add the scores. The algorithm will then calculate the final grade for your quarter.")
+print()
+time.sleep(2)
+
+nums = classes()
+
+print()
+
+percentage = (final_scores(nums))
+percent = (cal_percent(percentage))
+
+print()
+
+grade = math.ceil(percent)
+print("You have got", grade ,"% in your finals this quarter.")
+
+print()
+
+cal_grade = letter_grade(grade)
+print("Your final grade for this quarter is", cal_grade)
+print()
+print()
+print()
+print("👍 👍 👍 👍 👍  ALL THE BEST FOR YOUR FUTURE  👍 👍 👍 👍 👍")
+
+
+""" 
